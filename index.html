@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>胡思宇的个人简历</title>
     <script src="//at.alicdn.com/t/c/font_4853179_5jaehka2vhh.js"></script>
-    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="main.css">
     <style type="text/css">
         .loading {
             width: 200px;
@@ -124,33 +124,6 @@
         <div class="mask"></div>
     </div>
     <main>
-        <style>
-            .swiper {
-                width: 600px;
-                height: 300px;
-            }
-
-            .swiper-slide {
-                background: white;
-            }
-        </style>
-        <!-- Slider main container -->
-        <div class="swiper">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-            </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-
-        </div>
         <div data-x id="siteAbout" class="userCard">
             <div class="pictureAndText clearfix">
                 <div class="picture">
@@ -253,38 +226,22 @@
     </section>
     <section data-x id="siteWorks" class="portfolio">
         <h2>作品集</h2>
-        <nav>
-            <ol class="clearfix">
-                <li id="portfolio1">所有</li>
-                <li id="portfolio2">框架</li>
-                <li id="portfolio3">原生JS&CSS</li>
-            </ol>
-            <div id="portfolioBar" class="bar state-1">
-                <div class="bar-inner"></div>
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <img src="./img/jianpan.png" class="swiper-slide">
+                <img src="./img/huaban.jpg" class="swiper-slide">
+                <img src="./img/lunbo.png" class="swiper-slide">
             </div>
-        </nav>
-        <script>
-            portfolio1.onclick = function () {
-                portfolioBar.className = 'bar state-1'
-            }
-            portfolio2.onclick = function () {
-                portfolioBar.className = 'bar state-2'
-            }
-            portfolio3.onclick = function () {
-                portfolioBar.className = 'bar state-3'
-            }
-        </script>
-        <div class="works" style="height: 597px;">
-            <div class="big" style="top: 0; left: 0;">
-                <img src="./img/1.jpg" alt="作品1">
-            </div>
-            <div class="small" style="top: 0; left: 645px;">
-                <img src="./img/3.jpg" alt="作品2">
-            </div>
-            <div class="small" style="top: 300px; left: 645px;">
-                <img src="./img/2.jpg" alt="作品3">
-            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
         </div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
