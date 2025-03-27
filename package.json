@@ -1,0 +1,26 @@
+{
+  "name": "jianli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buyiderguduzhe/-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/buyiderguduzhe/-/issues"
+  },
+  "homepage": "https://github.com/buyiderguduzhe/-#readme",
+  "dependencies": {
+    "leancloud-storage": "^4.15.2"
+  },
+  "devDependencies": {
+    "vite": "^6.2.3"
+  },
+  "description": ""
+}
