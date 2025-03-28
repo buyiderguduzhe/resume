@@ -1,6 +1,6 @@
 !function () {
     //添加offset类
-    let specialTags = document.querySelectorAll('[data-x]')
+    var specialTags = document.querySelectorAll('[data-x]')
     for (let i = 1; i < specialTags.length; i++) {
         specialTags[i].classList.add('offset')
     }

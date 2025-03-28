@@ -1,44 +1,62 @@
-const { Query, User } = AV;
+!function () {
+    var model = Model({ resourceName: 'Message' })
 
-AV.init({
-    appId: "9PnlLi2a8MUxQhgn0oK9h40Y-gzGzoHsz",
-    appKey: "AoZH5YXLHLKkrbqFTz8Wklzk",
-    serverURL: "https://9pnlli2a.lc-cn-n1-shared.com",
-});
+    var view = View('section.message')
 
-const query = new AV.Query("Message");
-query.find()
-    .then(
-        function (messages) {
-            let array = messages.map((item) => item.attributes)
-            array.forEach((item) => {
+
+    var controller = {
+        view: null,
+        model: null,
+        messageList: null,
+        init: function (view, model) {
+            this.view = view
+            this.model = model
+            this.messageList = view.querySelector('#messageList')
+            this.form = view.querySelector('form')
+            this.model.init() // 初始化 LeanCloud SDK
+            this.loadMessages()
+            this.bindEvents() // 绑定事件
+        },
+        loadMessages: function () {
+            this.model.fetch().then(
+                (messages) => {
+                    let array = messages.map((item) => item.attributes)
+                    array.forEach((item) => {
+                        let li = document.createElement('li')
+                        li.innerText = `${item.name}: ${item.content}`
+                        this.messageList.appendChild(li)
+                    })
+                }
+            )
+        },
+        bindEvents: function () {
+            this.form.addEventListener('submit', (e) => {
+                e.preventDefault()
+                this.saveMessage()
+            })
+        },
+        saveMessage: function () {
+            let myForm = this.form
+            let content = myForm.querySelector('input[name=content]').value
+            let name = myForm.querySelector('input[name=name]').value
+            this.model.save({
+                'name': name, 'content': content
+            }).then(function (object) {
                 let li = document.createElement('li')
-                li.innerText = `${item.name}: ${item.content}`
+                li.innerText = `${object.attributes.name}: ${object.attributes.content}`
                 let messageList = document.querySelector('#messageList')
                 messageList.appendChild(li)
+                myForm.querySelector('input[name=content]').value = ''
+                console.log(object)
             })
-        })
+        }
 
-let myForm = document.querySelector('#postMessageForm')
+    }
 
-myForm.addEventListener('submit', function (e) {
-    e.preventDefault()
-    let content = myForm.querySelector('input[name=content]').value
-    let name = myForm.querySelector('input[name=name]').value
-    const Message = AV.Object.extend("Message");
-    const message = new Message();
-    message.save({
-        'name': name,
-        'content': content
-    }).then((message) => {
-        console.log("保存成功。");
-        let li = document.createElement('li')
-        li.innerText = `${message.attributes.name}: ${message.attributes.content}`
-        let messageList = document.querySelector('#messageList')
-        messageList.appendChild(li)
-        myForm.querySelector('input[name=content]').value = ''
-    });
-})
+    controller.init(view, model)
+
+
+}.call()
 
 
 
