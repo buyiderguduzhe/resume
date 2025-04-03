@@ -94,6 +94,9 @@ h6 {
 
 .topNavBar-inner {
     padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .topNavBar nav {
@@ -186,7 +189,6 @@ h6 {
 }
 
 .topNavBar .logo .rs {
-    margin-right: 4px;
     color: #E6686A;
 }
 
